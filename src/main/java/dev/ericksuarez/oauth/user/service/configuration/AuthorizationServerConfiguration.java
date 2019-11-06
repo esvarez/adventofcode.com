@@ -18,7 +18,6 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
-
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
@@ -35,14 +34,14 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     private DefaultTokenServices tokenServices;
 
     @Bean
-    public JwtAccessTokenConverter tokenConverter(){
+    public JwtAccessTokenConverter tokenConverter() {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
         converter.setSigningKey("1234567890");
         return converter;
     }
 
     @Bean
-    public TokenStore tokenStore(JwtAccessTokenConverter tokenConverter){
+    public TokenStore tokenStore(JwtAccessTokenConverter tokenConverter) {
         return new JwtTokenStore(tokenConverter);
     }
 
@@ -72,7 +71,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     }
 
     @Override
-    public void configure(AuthorizationServerSecurityConfigurer  security) throws Exception {
+    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security.allowFormAuthenticationForClients()
                 .tokenKeyAccess("isAuthenticated()")
                 .checkTokenAccess("isAuthenticated()");
