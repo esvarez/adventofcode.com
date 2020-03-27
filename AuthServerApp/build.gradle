@@ -15,8 +15,11 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.security.oauth:spring-security-oauth2:2.3.3.RELEASE'
-	implementation 'org.glassfish.jaxb:jaxb-runtime'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-configuration-processor'
+	compile group: 'org.springframework.security.oauth.boot', name: 'spring-security-oauth2-autoconfigure', version: '2.2.1.RELEASE'
+	testCompile group: 'com.h2database', name: 'h2', version: '1.3.148'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
