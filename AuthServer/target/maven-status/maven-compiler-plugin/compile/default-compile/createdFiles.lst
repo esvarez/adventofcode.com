@@ -1,0 +1,7 @@
+dev\ericksuarez\auth\AuthorizationServerApp.class
+dev\ericksuarez\auth\EmbeddedKeycloakConfig.class
+dev\ericksuarez\auth\KeycloakServerProperties.class
+dev\ericksuarez\auth\EmbeddedKeycloakApplication.class
+dev\ericksuarez\auth\EmbeddedKeycloakConfig$1.class
+dev\ericksuarez\auth\KeycloakServerProperties$AdminUser.class
+META-INF\spring-configuration-metadata.json
