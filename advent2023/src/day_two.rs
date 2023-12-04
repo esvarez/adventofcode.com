@@ -1,8 +1,16 @@
 use std::fs;
 
+#[allow(dead_code)]
+pub fn two() {
+    let _content = read_file("./input/day_two.txt");
+
+    for line in _content {
+        println!("Line is: {}", line);
+    }
+}
+
+#[allow(dead_code)]
 pub fn one() {
-    // pub .map(|s| s.to_string()).collect()
-    println!("Hello from day two part one");
     let _content = read_file("./input/day_two.txt");
     let blue = "blue"; 
     let red = "red"; 
