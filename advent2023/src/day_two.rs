@@ -3,10 +3,47 @@ use std::fs;
 #[allow(dead_code)]
 pub fn two() {
     let _content = read_file("./input/day_two.txt");
+    let blue = "blue"; 
+    let red = "red"; 
+    let green = "green";
+
+    let mut power_sum = 0;
 
     for line in _content {
-        println!("Line is: {}", line);
+        let segments = split_string(&line, ':');
+        
+        let sets = split_string(&segments[1], ';');
+        // println!("Sets are: {:?}", sets);
+        let mut min_blue = 0;
+        let mut min_red = 0;
+        let mut min_green = 0;
+        
+        for set in sets {
+            let colors = split_string(&set, ',');
+            for color in colors {
+                let number = extract_between(&color, ' ', ' ');
+                let n = number.map(|s| s.parse::<i32>().ok()).flatten();
+                if color.contains(blue) {
+                    if n.unwrap() > min_blue {
+                        min_blue = n.unwrap();
+                    }
+                } else if color.contains(red) {
+                    if n.unwrap() > min_red {
+                        min_red = n.unwrap();
+                    }
+                } else if color.contains(green) {
+                    if n.unwrap() > min_green {
+                        min_green = n.unwrap();
+                    }
+                }
+            } 
+        }
+        
+        power_sum += min_blue * min_red * min_green;    
+        
     }
+
+    println!("power sum is: {}", power_sum);
 }
 
 #[allow(dead_code)]
