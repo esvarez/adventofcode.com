@@ -6,6 +6,6 @@ mod utils;
 mod day_four;
 
 fn main() {
-    day_four::one();
+    day_four::two();
 }
 
